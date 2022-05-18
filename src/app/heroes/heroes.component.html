@@ -1,0 +1,39 @@
+<h2>Party</h2>
+<ul class="heroes">
+   <!-- <li *ngFor="let hero of heroes" [style.listStyleImage]="'url(assets/class_symbols/' + hero.class + '.png'"> -->
+    <li *ngFor="let hero of heroes" [ngStyle]="{
+      'listStyleImage': 'url(assets/class_symbols/' + hero.class + '.png',
+      'padding': 'auto'
+    }">
+    <button type="button" [class.selected]="hero === selectedHero"
+    (click)="onSelect(hero)">
+      <span class="name">{{hero.nickname}}</span>
+    </button>
+  </li>
+</ul>
+
+<div *ngIf="selectedHero">
+  <h2>{{selectedHero.name | uppercase}}</h2>
+  <div>id: {{selectedHero.id}}</div>
+  <ul class="hero-detail">
+    <li>
+      <label for="hero-name">Name: </label>
+      <input id="hero-name" [(ngModel)]="selectedHero.name" placeholder="name">
+    </li>
+
+    <li>
+      <label for="hero-class">Class: </label>
+      <select id="hero-class" [(ngModel)]="selectedHero.class" placeholder="class">
+        <option *ngFor="let class of classes">{{class}}</option>
+      </select>
+    </li>
+
+    <li>
+      <label for="hero-race">Race: </label>
+      <select id="hero-race" [(ngModel)]="selectedHero.race" placeholder="race">
+        <option *ngFor="let race of races">{{race}}</option>
+      </select>
+    </li>
+
+  </ul>
+</div>
