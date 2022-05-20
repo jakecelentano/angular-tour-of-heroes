@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Hero } from '../hero';
-import { HEROES } from '../mock-heroes';
-import { CLASSES } from '../mock-heroes'
-import { RACES } from '../mock-heroes'
+import { Hero } from '../interfaces/hero';
+import { HeroService } from '../hero.service';
 
 @Component({
   selector: 'app-heroes',
@@ -10,19 +8,29 @@ import { RACES } from '../mock-heroes'
   styleUrls: ['./heroes.component.css']
 })
 export class HeroesComponent implements OnInit {
-  heroes = HEROES;
-  classes = CLASSES;
-  races = RACES;
+  heroes: Hero[] = [];
   selectedHero?: Hero;
-    constructor() { }
+    constructor(private heroService: HeroService) {
+
+    }
 
   ngOnInit(): void {
-    HEROES.sort((a,b) => (a.name > b.name) ? 1 : -1);
 
   }
 
   onSelect(hero: Hero): void{
-    this.selectedHero = hero;
+    if(this.selectedHero == hero){
+      this.selectedHero = undefined;
+    }
+    else{
+      this.selectedHero = hero;
+    }
+
+  }
+
+  getHeroes(): void{
+    this.heroes = this.heroService.getHeroes();
+    this.heroes.sort((a,b) => (a.name > b.name) ? 1 : -1);
   }
 
 
