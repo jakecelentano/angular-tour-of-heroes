@@ -1,0 +1,26 @@
+<div *ngIf="hero">
+  <h2>{{hero.name | uppercase}}</h2>
+  <div>id: {{hero.id}}</div>
+  <ul class="hero-detail">
+    <li>
+      <label for="hero-name">Name: </label>
+      <input id="hero-name" [(ngModel)]="hero.name" placeholder="name">
+    </li>
+
+    <li>
+      <label for="hero-class">Class: </label>
+      <select id="hero-class" [(ngModel)]="hero.class" placeholder="class">
+        <option *ngFor="let class of classes">{{class}}</option>
+      </select>
+    </li>
+
+    <li>
+      <label for="hero-race">Race: </label>
+      <select id="hero-race" [(ngModel)]="hero.race" placeholder="race">
+        <option *ngFor="let race of races">{{race}}</option>
+      </select>
+    </li>
+
+  </ul>
+</div>
+

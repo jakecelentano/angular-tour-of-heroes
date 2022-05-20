@@ -8,15 +8,20 @@ list-style-image: url('^../assets/class_symbols/Unknown.png');  need ^ for some 
   margin: 0 0 2em 0;
   list-style-type: none;
   padding: 1%;
-  padding-left: 2%;
   width: 15em;
 }
 
 
 .heroes li {
-  display: list-item;
-  padding-left: 5%;
+  display: flex;
+
+
 }
+
+.heroes ul{
+  padding: auto;
+}
+
 
 .heroes button {
   flex: 1;
@@ -72,3 +77,6 @@ list-style-image: url('^../assets/class_symbols/Unknown.png');  need ^ for some 
 .heroes .name {
   align-self: center;
 }
+
+
+
