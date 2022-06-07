@@ -76,6 +76,8 @@ list-style-image: url('^../assets/class_symbols/Unknown.png');  need ^ for some 
 
 .heroes .name {
   align-self: center;
+  padding: 1em;
+
 }
 
 

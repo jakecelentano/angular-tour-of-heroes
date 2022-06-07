@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Hero } from '../interfaces/hero';
-import { HeroService } from '../hero.service';
-import { MessageService } from '../message.service';
+import { HeroService } from '../services/hero.service';
+import { MessageService } from '../services/message.service';
 
 @Component({
   selector: 'app-heroes',
@@ -11,9 +11,10 @@ import { MessageService } from '../message.service';
 export class HeroesComponent implements OnInit {
 
   heroes: Hero[] = [];
-  selectedHero?: Hero;
+  //selectedHero?: Hero;
 
-    constructor(private heroService: HeroService, private messageService: MessageService) {
+    //constructor(private heroService: HeroService, private messageService: MessageService) {
+    constructor(private heroService: HeroService) {
 
     }
 
@@ -21,6 +22,7 @@ export class HeroesComponent implements OnInit {
     this.getHeroes();
   }
 
+  /*
   onSelect(hero: Hero): void{
     if(this.selectedHero == hero){
       this.selectedHero = undefined;
@@ -31,12 +33,12 @@ export class HeroesComponent implements OnInit {
     }
 
   }
+  */
 
   getHeroes(): void{
     this.heroService.getHeroes().subscribe(heroes => this.heroes = heroes);
     this.heroes.sort((a,b) => (a.name > b.name) ? 1 : -1);
   }
-
 
 
 }

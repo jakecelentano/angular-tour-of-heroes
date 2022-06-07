@@ -8,14 +8,17 @@
 -->
 
     <li *ngFor="let hero of heroes">
-      <img src="{{'assets/class_symbols/' + hero.class + '.png'}}" width="42px" height="42px" title="{{hero.class}}">
-    <button type="button" [class.selected]="hero === selectedHero"
-    (click)="onSelect(hero)">
-      <span class="name">{{hero.nickname}}</span>
-    </button>
+      <a routerLink="/detail/{{hero.id}}">
+        <img src="{{'assets/class_symbols/' + hero.class + '.png'}}" width="42px" height="42px" title="{{hero.class}}">
+
+
+      <span class="badge">{{hero.nickname}}</span>
+    </a>
+    <!--<button type="button" [class.selected]="hero === selectedHero" (click)="onSelect(hero)">
+      </button>-->
   </li>
 </ul>
 
-<app-hero-detail [hero]="selectedHero"></app-hero-detail>
+<!--<app-hero-detail [hero]="selectedHero"></app-hero-detail>-->
 
 
